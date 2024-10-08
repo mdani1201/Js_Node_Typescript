@@ -25,10 +25,11 @@ const displayQuestion = () => {
   
   let answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
-  
+
   question.answers.forEach((a,i) => {
     let answerButton = document.createElement("button");
     answerButton.textContent = a;
+    answerButton.onclick = () => checkAnswer(i);
     answersDiv.appendChild(answerButton);
   })
 }
