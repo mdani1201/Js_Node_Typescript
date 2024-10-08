@@ -20,6 +20,13 @@ let questions = [
 ];
 
 const displayQuestion = () => {
+  if(currentQuestionIndex >= questions.length){
+    document.getElementById("quiz-container").hidden = true;
+    document.getElementById("result").hidden = false;
+    document.getElementById("score").textContent = score;
+    return;
+  }
+
   let question = questions[currentQuestionIndex];
   document.getElementById("question").textContent = question.question; 
   
@@ -37,18 +44,11 @@ displayQuestion();
 
 const checkAnswer = (userAnswer) => {
     let correctAnswer = questions[currentQuestionIndex].correctAnswer;
-    if(userAnswer = correctAnswer){
+    if(userAnswer == correctAnswer){
       score++;
     }
     nextQuestion();
 }
-
-const displayScore = () => {
-  let quizContainer = document.getElementById("quiz-container");
-
-  quizContainer.innerHTML = `<h1>Your score is: ${score}</h1>`;
-  currentQuestionIndex = 0;
-};
 
 let nextQuestion = () => {
   currentQuestionIndex++;
