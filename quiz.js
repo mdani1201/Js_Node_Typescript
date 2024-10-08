@@ -33,6 +33,7 @@ const displayQuestion = () => {
     answersDiv.appendChild(answerButton);
   })
 }
+displayQuestion();
 
 const checkAnswer = (userAnswer) => {
     let correctAnswer = questions[currentQuestionIndex].correctAnswer;
