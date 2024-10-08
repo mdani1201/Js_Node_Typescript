@@ -17,7 +17,7 @@ let questions = [
     answers: ["2","6","4", "8"],
     correctAnswer: 2
   },
-]
+];
 
 const displayQuestion = () => {
   let question = questions[currentQuestionIndex];
@@ -30,4 +30,13 @@ const displayQuestion = () => {
     answerButton.textContent = a;
     answersDiv.appendChild(answerButton);
   })
+}
+
+const checkAnswer = (userAnswer) => {
+    let correctAnswer = questions[currentQuestionIndex].correctAnswer;
+    if(userAnswer = currentQuestionIndex){
+      score++;
+    }
+    currentQuestionIndex++;
+    displayQuestion();
 }
