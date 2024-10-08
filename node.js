@@ -1,6 +1,6 @@
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
+//const os = require('os');
+//const fs = require('fs');
+//const path = require('path');
 //OS MODULE
 //We bind the "os" Module to the os variable to use its functions
 /*
