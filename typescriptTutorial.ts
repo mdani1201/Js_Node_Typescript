@@ -1,24 +1,23 @@
-enum LoginError {
-  Unauthorized = "Unauthorized", 
-  NoUser = "No User",
-  WrongCredentials = "Wrong Credentials",
-  Internal = "Internal"
-}
-//enum can be used to define a Custom Types Object
+// the T is a generic that is a placeholder so you can define any type when you create an object from this class
+class StorageContainer <T> {
+  private contents : T[]
 
+  constructor() {
+    this.contents = [];
+  }
+  addItem(item: T):void {
 
-//An error msg can be a lot of thing so to define a type is not easy
-const printErrorMsg = (error: LoginError) => {
-  if(error == LoginError.Unauthorized) {
-    console.log("User not authorized");
   }
-  else if(error == LoginError.NoUser) {
-    console.log("No User found");
-  }
-  else if(error == LoginError.WrongCredentials) {
-    console.log("Wrong Credentials");
-  }
-  else {
-    console.log("Internal Error");
+
+  getItem(i: number):T | undefined {
+    return this.contents[i];
   }
 }
+
+const usernames = new StorageContainer<string>();
+usernames.addItem("danitec");
+usernames.addItem("sesotec");
+
+const friendsCount = new StorageContainer<number>();
+friendsCount.addItem(323);
+friendsCount.addItem(4532);
