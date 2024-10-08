@@ -1,30 +1,24 @@
-//                       union
-const printID = (id: string|number) => {
-  console.log("ID: " + id);
-} 
-// Can be Both types that we defined
-printID("id123");
-printID(12345678);
-
-// Custom Types
-type IDField = string|number;
-
-const printID2 = (id: IDField) => {
-  console.log("ID: " + id);
-} 
-
-interface BusinessPartner {
-  name: string
-  creditScore: number
+enum LoginError {
+  Unauthorized = "Unauthorized", 
+  NoUser = "No User",
+  WrongCredentials = "Wrong Credentials",
+  Internal = "Internal"
 }
+//enum can be used to define a Custom Types Object
 
-interface UserIdentity {
-  id:number
-  email: string
-}
 
-type Employee = BusinessPartner & UserIdentity //In intersection you can call both fields from both interfaces
-
-const signContract = (employee: Employee):void => {
-  console.log("Contract signed by" + employee.name + "with email: " + employee.email);
+//An error msg can be a lot of thing so to define a type is not easy
+const printErrorMsg = (error: LoginError) => {
+  if(error == LoginError.Unauthorized) {
+    console.log("User not authorized");
+  }
+  else if(error == LoginError.NoUser) {
+    console.log("No User found");
+  }
+  else if(error == LoginError.WrongCredentials) {
+    console.log("Wrong Credentials");
+  }
+  else {
+    console.log("Internal Error");
+  }
 }
