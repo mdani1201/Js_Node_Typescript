@@ -1,5 +1,7 @@
 let score = 0;
 let currentQuestionIndex = 0;
+let quizContainer = document.getElementById("quiz-container");
+let result = document.getElementById("result");
 
 let questions = [
   {
@@ -21,8 +23,8 @@ let questions = [
 
 const displayQuestion = () => {
   if(currentQuestionIndex >= questions.length){
-    document.getElementById("quiz-container").hidden = true;
-    document.getElementById("result").hidden = false;
+    quizContainer.hidden = true;
+    result.hidden = false;
     document.getElementById("score").textContent = score;
     return;
   }
@@ -52,5 +54,12 @@ const checkAnswer = (userAnswer) => {
 
 let nextQuestion = () => {
   currentQuestionIndex++;
+  displayQuestion();
+}
+
+let restart = () => {
+  currentQuestionIndex = 0;
+  quizContainer.hidden = false;
+  result.hidden = true;
   displayQuestion();
 }
