@@ -32,7 +32,6 @@ const displayQuestion = () => {
     answerButton.onclick = () => checkAnswer(i);
     answersDiv.appendChild(answerButton);
   })
-  displayScore();
 }
 displayQuestion();
 
@@ -41,8 +40,7 @@ const checkAnswer = (userAnswer) => {
     if(userAnswer = correctAnswer){
       score++;
     }
-    currentQuestionIndex++;
-    displayQuestion();
+    nextQuestion();
 }
 
 const displayScore = () => {
@@ -50,4 +48,9 @@ const displayScore = () => {
 
   quizContainer.innerHTML = `<h1>Your score is: ${score}</h1>`;
   currentQuestionIndex = 0;
+};
+
+let nextQuestion = () => {
+  currentQuestionIndex++;
+  displayQuestion();
 }
