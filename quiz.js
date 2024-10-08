@@ -40,6 +40,10 @@ const checkAnswer = (userAnswer) => {
     if(userAnswer = currentQuestionIndex){
       score++;
     }
-    currentQuestionIndex++;
-    displayQuestion();
+    nextQuestion();
+}
+
+let nextQuestion = () => {
+  currentQuestionIndex++;
+  displayQuestion();
 }
