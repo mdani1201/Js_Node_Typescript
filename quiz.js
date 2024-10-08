@@ -24,7 +24,8 @@ const displayQuestion = () => {
   document.getElementById("question").textContent = question.question; 
   
   let answersDiv = document.getElementById("answers");
-
+  answersDiv.innerHTML = "";
+  
   question.answers.forEach((a,i) => {
     let answerButton = document.createElement("button");
     answerButton.textContent = a;
